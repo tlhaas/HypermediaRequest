@@ -20,7 +20,7 @@ You don't *have* to use this, but I included a stripped out Sinatra server file 
   * Run `ruby server.rb`
   * ctrl-c stops the server
 
-Of course you don't have to use server.rb. You can point it at REST service you want, but playing with new toys is fun, so...
+Of course you don't have to use server.rb. You can point it at any REST service you want, but playing with new toys is fun, so...
 
 ### example files
 
