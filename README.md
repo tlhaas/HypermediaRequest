@@ -1,4 +1,4 @@
-hypermedia (rest) request object
+hypermedia request object
 ================================
 
 introduction
@@ -11,11 +11,24 @@ After looking into alternatives (*insert obvious PHP joke here*) for a while I s
 how-to use
 ----------
 
+### The server
+
+You don't *have* to use this, but I included a stripped out Sinatra server file (server.rb) for testing. If you're not familiar with Sinatra, it's a Domain-Specific Language written in Ruby that lets you spin up REST servers with nearly zero effect. Here's how to use server.rb:
+  
+  * Ensure you have Ruby =>1.9.3 installed
+  * Run `gem install sinatra`
+  * Run `ruby server.rb`
+  * ctrl-c stops the server
+
+Of course you don't have to use server.rb. You can point it at REST service you want, but playing with new toys is fun, so...
+
+### Example files
+
 I have two usage examples for you:
-* example.js
+* example.html
 * example.php
 
-example.js fires off an jQuery Ajax call to proxy.php. proxy.php parses the request data for the VERB, ROUTE, HEADERS, AND/OR REQUEST BODY. It then uses the Hypermedia Request class to build the request, fire the request, parse the response, then relay the response back to example.js.
+example.html fires off an jQuery Ajax call to proxy.php, which parses the request data for the VERB, ROUTE, HEADERS, AND/OR REQUEST BODY. The proxy then uses the Hypermedia Request class to build the request, fire it off, parse the response, and relay the response back to example.html.
 
 example.php is pure PHP so you simply use it like you would any other class.
 

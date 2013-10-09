@@ -13,6 +13,9 @@
   //... and parse for a 200
   if (preg_match("/200/i", $http_status)){
     $resp_body      = json_decode($request->getResponseBody(), true);
+    print "<h1>Response headers:</h1>";
+    dump($resp_headers);
+    print "<h1>Response body:</h1>";
     dump($resp_body);
   } 
   else { 

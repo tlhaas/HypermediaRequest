@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Untitled</title>
+  <script type='text/javascript' src='./jquery-1.9.1.min.js'></script>
+  <script>
+    $(document).on("ready", function(){
+      var token   = "omgwhateverthisisatokenbro";
+      var headers = ["Authorization: " + token + ""];
+      headers     = JSON.stringify(headers);
+      var data = {method:'get', resource:'/customer', headers:headers};
+      getCustomerListAjax(data);
+    });
+
+    // Everything is tunneled via POST to the proxy
+    // The proxy then uses the correct VERB to hit the Hypermedia API (Sinatra server)
+    function getCustomerListAjax(theData){
+      $.ajax({
+        type:'post',
+        async:'true',
+        cache:false,
+        data:theData,
+        url:'./proxy.php',
+        dataType:'json',
+        statusCode: {
+          501:function() { 
+            $('#resp_dump').empty().append("<pre>501: Method not implemented.</pre>");
+          },
+          404:function() { 
+            $('#resp_dump').empty().append("<pre>404: Resource not found.</pre>");
+          },
+          200:function( data ) { 
+            var resp = JSON.stringify(data);
+            $('#resp_dump').empty().append("<pre>" + resp + "</pre>");
+          }
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+  <h1>Hypermedia Response</h1>
+  <div id='resp_dump'></div>
+</body>
+</html>
