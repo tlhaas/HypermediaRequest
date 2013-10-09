@@ -4,7 +4,7 @@
 	class Hypermedia_Request {
 	
 		private $PROTOCOL 				= "http";
-		private $PROTOCOL_VER			= "1.1";
+		private $PROTOCOL_VER 		= "1.1";
 
 		private $uri 							= "";
 		private $verb 						= "";
@@ -13,7 +13,7 @@
 
 		private $options 					= [];
 		private $context 					= "";
-		private $ignore_errors  	= true;
+		private $ignore_errors 		= true;
 
 		private $response 				= "";
 		private $response_headers = [];
@@ -21,11 +21,11 @@
 		public function __construct($verb, $uri, $headers=array(), $request_body=NULL){
 			$this->verb 			= $verb;											// Set the verb 
 			$this->uri 				= $uri;												// Set the URI
+
 			if (!empty($headers)) {
 				foreach ($headers as $header) { array_push($this->request_headers, $header); }	// Set the headers, if they exist
 			}
 			if (!is_null($request_body)) { $this->request_body = $request_body; } 						// Set the request body, if it exists
-
 		}
 
 		public function execute(){
@@ -35,7 +35,7 @@
 			$this->options[$this->PROTOCOL]['header'] 	= $this->request_headers;				// Add the headers
 			$this->options[$this->PROTOCOL]['content']	= $this->request_body;					// Add the content
 			$this->options[$this->PROTOCOL]['ignore_errors'] = $this->ignore_errors;		// Read the response body on errors (per rfc-2616)
-			
+
 			$this->context = stream_context_create($this->options);											// Build the HTTP context stream (whatever the hell that is)
 
 			// FIRE!! 
@@ -46,13 +46,13 @@
 			foreach ($http_response_header as $header){
 				// The status code is special: it doesn't have a colon
 				if (preg_match("/http/i", $header)) {
-		    	$this->response_headers['Status'] = $header;
-		    } 
-		    // Everything else
-	    	else {
-	    		$pieces = explode(":", $header, 2);
+					$this->response_headers['Status'] = $header;
+				} 
+				// Everything else
+				else {
+					$pieces = explode(":", $header, 2);
 					$this->response_headers[$pieces[0]] = $pieces[1];
-	    	}
+				}
 			}
 		}
 
