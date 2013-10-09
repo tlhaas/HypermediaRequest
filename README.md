@@ -13,7 +13,7 @@ how-to use
 
 ### the server
 
-You don't *have* to use this, but I included a stripped out Sinatra server file (server.rb) for testing. If you're not familiar with Sinatra, it's a Domain-Specific Language written in Ruby that lets you spin up REST servers with nearly zero effect. Here's how to use server.rb:
+You don't *have* to use this, but I included a stripped out Sinatra server file (server.rb) for testing. If you're not familiar with Sinatra, it's a Domain-Specific Language written in Ruby that lets you spin up REST servers with nearly zero effort. Here's how to use server.rb:
   
   * Ensure you have Ruby =>1.9.3 installed
   * Run `gem install sinatra`
