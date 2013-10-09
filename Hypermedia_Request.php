@@ -6,17 +6,17 @@
 		private $PROTOCOL = "http";
 		private $PROTOCOL_VER = "1.1";
 
-		private $uri 							= "";
-		private $verb 						= "";
-		private $request_headers 	= ["Connection: Close","Host: localhost:4567"];
-private $request_body 		= NULL;
+		private $uri = "";
+		private $verb	= "";
+		private $request_headers = ["Connection: Close","Host: localhost:4567"];
+		private $request_body = NULL;
 
-private $options 					= [];
-private $context 					= "";
-private $ignore_errors 		= true;
+		private $options = [];
+		private $context = "";
+		private $ignore_errors = true;
 
-private $response 				= "";
-private $response_headers = [];
+		private $response = "";
+		private $response_headers = [];
 
 public function __construct($verb, $uri, $headers=array(), $request_body=NULL){
 $this->verb 			= $verb;											// Set the verb 
