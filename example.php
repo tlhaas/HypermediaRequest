@@ -34,8 +34,8 @@
 </head>
 <body>
   <h1>Response headers</h1>
-  <?= print dump($resp_headers) ?>
+  <?= dump($resp_headers) ?>
   <h1>Response body</h1>
-  <?= print dump($resp_body) ?>
+  <?= dump($resp_body) ?>
 </body>
 </html>
