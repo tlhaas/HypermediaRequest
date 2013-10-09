@@ -3,19 +3,19 @@
 
   class Hypermedia_Request {
 
-    private $PROTOCOL = "http";
-    private $PROTOCOL_VER = "1.1";
+    private $PROTOCOL         = "http";
+    private $PROTOCOL_VER     = "1.1";
 
-    private $uri = "";
-    private $verb	= "";
-    private $request_headers = ["Connection: Close","Host: localhost:4567"];
-    private $request_body = NULL;
+    private $uri              = "";
+    private $verb             = "";
+    private $request_headers  = ["Connection: Close","Host: localhost:4567"];
+    private $request_body     = NULL;
 
-    private $options = [];
-    private $context = "";
-    private $ignore_errors = true;
+    private $options          = [];
+    private $context          = "";
+    private $ignore_errors    = true;
 
-    private $response = "";
+    private $response         = "";
     private $response_headers = [];
 
     public function __construct($verb, $uri, $headers=array(), $request_body=NULL){
@@ -50,24 +50,24 @@
         } 
         // Everything else
         else {
-$pieces = explode(":", $header, 2);
-$this->response_headers[$pieces[0]] = $pieces[1];
-}
-}
-}
+          $pieces = explode(":", $header, 2);
+          $this->response_headers[$pieces[0]] = $pieces[1];
+        }
+      }
+    }
 
-public function getResponseBody(){
-return $this->response;
-}
+    public function getResponseBody(){
+      return $this->response;
+    }
 
-public function getResponseHeaders(){
-return $this->response_headers;
-}
+    public function getResponseHeaders(){
+      return $this->response_headers;
+    }
 
-public function getOptions(){
-return $this->options;
-}
+    public function getOptions(){
+      return $this->options;
+    }
 
-}
+  } # end class
 
 ?>
