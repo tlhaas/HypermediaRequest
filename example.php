@@ -12,14 +12,10 @@
 
   //... and parse for a 200
   if (preg_match("/200/i", $http_status)){
-    $resp_body      = json_decode($request->getResponseBody(), true);
-    print "<h1>Response headers:</h1>";
-    dump($resp_headers);
-    print "<h1>Response body:</h1>";
-    dump($resp_body);
+    $resp_body = json_decode($request->getResponseBody(), true);
   } 
   else { 
-    dump($http_status);
+    $resp_body = "Error";
   }
   
   function dump( $struct ){
@@ -29,3 +25,17 @@
   }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Untitled</title>
+</head>
+<body>
+  <h1>Response headers</h1>
+  <?= print dump($resp_headers) ?>
+  <h1>Response body</h1>
+  <?= print dump($resp_body) ?>
+</body>
+</html>
