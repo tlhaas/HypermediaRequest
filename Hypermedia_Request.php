@@ -32,13 +32,14 @@
 
     public function execute(){
       // Build out the options hash
-      $this->options[$this->PROTOCOL]['protocol_version'] = $this->PROTOCOL_VER;  // Set the HTTP version
-      $this->options[$this->PROTOCOL]['method'] 	= $this->verb;                  // Set the verb
-      $this->options[$this->PROTOCOL]['header'] 	= $this->request_headers;       // Add the headers
-      $this->options[$this->PROTOCOL]['content']	= $this->request_body;          // Add the content
-      $this->options[$this->PROTOCOL]['ignore_errors'] = $this->ignore_errors;    // Read the response body on errors (per rfc-2616)
+      $this->options[$this->PROTOCOL]['protocol_version'] = $this->PROTOCOL_VER;    // Set the HTTP version
+      $this->options[$this->PROTOCOL]['method']           = $this->verb;            // Set the verb
+      $this->options[$this->PROTOCOL]['header']           = $this->request_headers; // Add the headers
+      $this->options[$this->PROTOCOL]['content']          = $this->request_body;    // Add the content
+      $this->options[$this->PROTOCOL]['ignore_errors']    = $this->ignore_errors;   // Read the response body on errors (per rfc-2616)
 
-      $this->context = stream_context_create($this->options);                     // Build the HTTP context stream (whatever the hell that is)
+      // Build the HTTP context stream (whatever the hell that is)
+      $this->context = stream_context_create($this->options);
 
       // FIRE!! 
       $this->response = file_get_contents($this->uri, false, $this->context);
