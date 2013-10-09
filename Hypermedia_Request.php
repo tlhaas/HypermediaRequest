@@ -23,7 +23,7 @@
 			$this->uri 				= $uri;												// Set the URI
 
 			if (!empty($headers)) {
-				foreach ($headers as $header) { array_push($this->request_headers, $header); }	// Set the headers, if they exist
+			foreach ($headers as $header) { array_push($this->request_headers, $header); }	// Set the headers, if they exist
 			}
 			if (!is_null($request_body)) { $this->request_body = $request_body; } 						// Set the request body, if it exists
 		}
