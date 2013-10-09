@@ -1,14 +1,14 @@
 <?php
 
 
-class Hypermedia_Request {
+	class Hypermedia_Request {
 
-private $PROTOCOL 				= "http";
-private $PROTOCOL_VER 		= "1.1";
+		private $PROTOCOL 				= "http";
+		private $PROTOCOL_VER 		= "1.1";
 
-private $uri 							= "";
-private $verb 						= "";
-private $request_headers 	= ["Connection: Close","Host: localhost:4567"];
+		private $uri 							= "";
+		private $verb 						= "";
+		private $request_headers 	= ["Connection: Close","Host: localhost:4567"];
 private $request_body 		= NULL;
 
 private $options 					= [];
