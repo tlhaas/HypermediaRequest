@@ -2,11 +2,11 @@
 
   if ($_POST['method']){
 
-    $VERB 			= strtoupper($_POST['method']);
-    $RESOURCE 	= $_POST['resource'];
-    $ROOT				= "http://localhost:4567";
-    $REQ_BODY  	= $_POST['data'];
-    $HEADERS 		= json_decode($_POST['headers']);
+    $VERB     = strtoupper($_POST['method']);
+    $RESOURCE = $_POST['resource'];
+    $ROOT     = "http://localhost:4567";
+    $REQ_BODY = $_POST['data'];
+    $HEADERS  = json_decode($_POST['headers']);
 
     require_once("./Hypermedia_Request.php");
 
