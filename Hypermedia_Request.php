@@ -19,8 +19,8 @@
 		private $response_headers = [];
 
 		public function __construct($verb, $uri, $headers=array(), $request_body=NULL){
-			$this->verb 			= $verb;	// Set the verb 
-			$this->uri 				= $uri;		// Set the URI
+			$this->verb 	= $verb;	// Set the verb 
+			$this->uri 		= $uri;		// Set the URI
 
 			if (!empty($headers)) {
 				foreach ($headers as $header) { array_push($this->request_headers, $header); }	// Set the headers, if they exist
