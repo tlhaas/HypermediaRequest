@@ -11,7 +11,7 @@ After looking into alternatives (*insert obvious PHP joke here*) for a while I s
 how-to use
 ----------
 
-### The server
+### the server
 
 You don't *have* to use this, but I included a stripped out Sinatra server file (server.rb) for testing. If you're not familiar with Sinatra, it's a Domain-Specific Language written in Ruby that lets you spin up REST servers with nearly zero effect. Here's how to use server.rb:
   
@@ -22,7 +22,7 @@ You don't *have* to use this, but I included a stripped out Sinatra server file 
 
 Of course you don't have to use server.rb. You can point it at REST service you want, but playing with new toys is fun, so...
 
-### Example files
+### example files
 
 I have two usage examples for you:
 * example.html
