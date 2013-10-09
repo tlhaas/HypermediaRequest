@@ -3,8 +3,8 @@
 
 	class Hypermedia_Request {
 
-		private $PROTOCOL 				= "http";
-		private $PROTOCOL_VER 		= "1.1";
+		private $PROTOCOL = "http";
+		private $PROTOCOL_VER = "1.1";
 
 		private $uri 							= "";
 		private $verb 						= "";
