@@ -39,6 +39,12 @@
     $resp_headers = $request->getResponseHeaders();
     $resp_body    = $request->getResponseBody();
 
+		if (empty($resp_headers)){
+			// The server probably isn't running, so just bomb out
+			header("HTTP/1.1 502 Bad Gateway");
+			exit;
+		}
+
     // Relay the HTTP response...
     foreach ($resp_headers as $key=>$value){
       if ($key == "Status"){

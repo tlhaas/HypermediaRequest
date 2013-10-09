@@ -24,8 +24,8 @@
         url:'./proxy.php',
         dataType:'json',
         statusCode: {
-          501:function() { 
-            $('#resp_dump').empty().append("<pre>501: Method not implemented.</pre>");
+          502:function() { 
+            $('#resp_dump').empty().append("<pre>502: Bad Gateway (the server is probably down)</pre>");
           },
           404:function() { 
             $('#resp_dump').empty().append("<pre>404: Resource not found.</pre>");

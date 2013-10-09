@@ -15,7 +15,7 @@
     $resp_body = json_decode($request->getResponseBody(), true);
   } 
   else { 
-    $resp_body = "Error";
+    $resp_body = $http_status;
   }
   
   function dump( $struct ){

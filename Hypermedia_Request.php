@@ -46,18 +46,24 @@
 
       // Read the response headers and add them into the object
       // The $http_response_header array is similar to the get_headers() function. 
-      foreach ($http_response_header as $header){
-        // The status code is special: it doesn't have a colon
-        if (preg_match("/http/i", $header)) {
-          $this->response_headers['Status'] = $header;
-        } 
-        // Everything else
-        else {
-          $pieces = explode(":", $header, 2);
-          $this->response_headers[$pieces[0]] = $pieces[1];
-        }
+      if (empty($http_response_header)){
+      	$this->response_headers['Status'] = "HTTP/1.1 502 Bad Gateway";
       }
-    }
+      else {
+        foreach ($http_response_header as $header){
+          // The status code is special: it doesn't have a colon
+          if (preg_match("/http/i", $header)) {
+            $this->response_headers['Status'] = $header;
+          } 
+          // Everything else
+          else {
+            $pieces = explode(":", $header, 2);
+            $this->response_headers[$pieces[0]] = $pieces[1];
+          }
+        } # end foreach	
+      } #end else
+      
+    } #end execute 
 
     public function getResponseBody(){
       return $this->response;
